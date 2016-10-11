@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>practice2</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #menu{
+            height: 30px;    /*这里是不让h1上去的关键 h1要在哪个元素下面 就需要让那个元素必须有高度*/
+        }                    /*menu和main-menu不是同一个元素！*/
+                             /*不用overfloat：hidden 因为会把二级列表隐藏*/
+        #menu .main-menu {
+            float: left;     /*这个为了让第一层列表横向排列*/
+            background: wheat;
+            height: 30px;
+            width: 120px;
+            margin-right: 5px;
+        }
+
+        #menu .main-menu a {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            line-height: 30px;
+            display: block;    /*这里是为了让a能够调整高和宽 能够调整高和宽才能让a充满li*/
+        }
+        #menu .submenu{
+            background: paleturquoise;
+            display: none;
+        }
+        #menu .submenu a{
+            text-align: left;
+            text-indent: 10px;  /*文本缩进*/
+        }
+        #menu .submenu li{
+            border-bottom: 1px dashed black;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li class="main-menu">
+            <a href="?">link 1</a>
+            <ul class="submenu">
+                <li><a href="?">sublink 1</a></li>
+                <li><a href="?">sublink 2</a></li>
+                <li><a href="?">sublink 3</a></li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <a href="?">link 2</a>
+            <ul class="submenu">
+                <li><a href="?">sublink 1</a></li>
+                <li><a href="?">sublink 2</a></li>
+                <li><a href="?">sublink 3</a></li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <a href="?">link 3</a>
+            <ul class="submenu">
+                <li><a href="?">sublink 1</a></li>
+                <li><a href="?">sublink 2</a></li>
+                <li><a href="?">sublink 3</a></li>
+            </ul>
+        </li>
+    </ul>
+    <h1>hohohohoho</h1>
+    <script>
+        var oMenu = document.getElementById('menu'){
+            var oMainmenu = oMenu.getElementsByClassName('main-menu'){
+
+            }
+        }
+    </script>
+</body>
+</html>
