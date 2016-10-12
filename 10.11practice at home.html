@@ -81,7 +81,7 @@
     };
     var oMenu = document.getElementById('menu');
     var aMainMenu = oMenu.getElementsByTagName('li');
-    for (i = 0; i < aMainMenu.length; i++) {
+    for ( var i = 0; i < aMainMenu.length; i++) {
         if (aMainMenu[i].className = 'main-menu') {
             aMainMenu[i].onmouseover = function () {
                 var aSubmenu = this.getElementsByTagName('ul')[0];
