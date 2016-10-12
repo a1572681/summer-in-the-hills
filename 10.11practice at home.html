@@ -80,9 +80,9 @@
         alert('had the whole world at our feet')
     };
     var oMenu = document.getElementById('menu');
-    var aMainMenu = document.getElementsByTagName('li');
+    var aMainMenu = oMenu.getElementsByTagName('li');
     for (i = 0; i < aMainMenu.length; i++) {
-        if (aMainMenu[i] = 'main-menu') {
+        if (aMainMenu[i].className = 'main-menu') {
             aMainMenu[i].onmouseover = function () {
                 var aSubmenu = this.getElementsByTagName('ul')[0];
                 aSubmenu.style.display = 'block'
