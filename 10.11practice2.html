@@ -83,15 +83,17 @@
         for (var i=0; i<aMainmenu.length; i++) {
             if (aMainmenu[i].className == 'main-menu') {
                 aMainmenu[i].onmouseover = function () {
-                    var aSubmenu = this.getElementsByTagName('ul')[0];
-                    aSubmenu.style.display = 'block'
+                    var aSubmenu = this.getElementsByTagName('ul')[0];/*这里aSubmenu是数组
+                    但是我们要改变的是元素的显示  所以要从数组中把元素提取出来*/
+                    aSubmenu.style.display = 'block';
                 };
                 aMainmenu[i].onmouseout = function () {/*对象.方法*/
-                    var aSubmenu = this.getElementsByTagName('ul')[0];
-                    aSubmenu.style.display = 'none'/*对象.属性*/
+                    var aSubmenu = this.getElementsByTagName('ul')[0];/*找元素就只有三种方法
+                                                                                                                  id tagname classname*/
+                    aSubmenu.style.display = 'none';/*对象.属性*/
                 };
-            };
-        };
+            }
+        }
     </script>
 </body>
 </html>

@@ -72,17 +72,21 @@
         </ul>
     </li>
 </ul>
-<h1>those hazy days i do remember</h1>
+<h1 id="h1">those hazy days i do remember</h1>
 <botton id="btn">we were running still</botton>
 <script>
     var oBtn = document.getElementById('btn');
     oBtn.onclick = function () {
-        alert('had the whole world at our feet')
+        alert( this.innerHTML)
+    };
+    var oH1 = document.getElementById('h1');
+    oH1.onclick = function (){
+        this.style.backgroundColor = 'blue'
     };
     var oMenu = document.getElementById('menu');
     var aMainMenu = oMenu.getElementsByTagName('li');
     for ( var i = 0; i < aMainMenu.length; i++) {
-        if (aMainMenu[i].className = 'main-menu') {
+        if (aMainMenu[i].className == 'main-menu') {/*这里注意是==！！!  =赋值  ==比较 ===全等*/
             aMainMenu[i].onmouseover = function () {
                 var aSubmenu = this.getElementsByTagName('ul')[0];
                 aSubmenu.style.display = 'block'

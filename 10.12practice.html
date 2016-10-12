@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Rwby rose</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #container{
+            margin: 50px auto;
+            width: 380px;
+        }
+        #nav li{
+            float: left;/*子元素浮动导致父元素没有高*/
+            width: 120px;
+            height: 30px;
+            background: orange;
+            margin-right: 5px;
+            line-height: 30px;
+            text-align: center;
+        }
+        #nav{
+            height: 30px;/*所以这里要加高*/
+        }
+        #content{
+            width: 370px;
+            height: 200px;
+            background: peachpuff;
+            border-top: 1px solid darkgoldenrod;
+        }
+        #nav .selected{
+            background: orangered;
+            color: cornsilk;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="nav">
+            <li>Ruby</li>
+            <li>White</li>
+            <li>Blake</li>
+        </ul>
+        <div id="content">
+            Welcome to the world of Rwby
+        </div>
+    </div>
+    <script>
+        var data = [ "Red like roses", "Mirror, mirror", "From shadows"];
+        var aLi = document.getElementsByTagName('li');
+        var oContent = document.getElementById('content');
+
+        for(var i= 0; i<aLi.length; i++){/*注意是；不是，*/
+            aLi[i].index = i;/*人为的添加index这个属性 使得index数值和在数组里面位置的数值相同*/
+            aLi[i].onclick = function(){
+                for(var i= 0; i<aLi.length; i++){
+                    aLi[i].className = '';
+                }
+                this.className = 'selected';/*一定要是this！*/
+                oContent.innerHTML = data[this.index]
+            };
+
+        }
+
+    </script>
+</body>
+</html>
