@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>summer in the hills</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #menu {
+            height: 30px;
+        }
+
+        #menu .main-menu {
+            background: lightcoral;
+            float: left;
+            width: 120px;
+            height: 30px;
+            text-align: center;
+            margin-right: 5px;
+            line-height: 30px;
+        }
+
+        #menu .submenu {
+            text-align: left;
+            background: gold;
+            text-indent: 10px;
+            display: none;
+        }
+
+        #menu .main-menu a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <a href="?">link 1</a>
+        <ul class="submenu">
+            <li><a href="?">sublink 1</a></li>
+            <li><a href="?">sublink 2</a></li>
+            <li><a href="?">sublink 3</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <a href="?">link 2</a>
+        <ul class="submenu">
+            <li><a href="?">sublink 1</a></li>
+            <li><a href="?">sublink 2</a></li>
+            <li><a href="?">sublink 3</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <a href="?">link 3</a>
+        <ul class="submenu">
+            <li><a href="?">sublink 1</a></li>
+            <li><a href="?">sublink 2</a></li>
+            <li><a href="?">sublink 3</a></li>
+        </ul>
+    </li>
+</ul>
+<h1>those hazy days i do remember</h1>
+<botton id="btn">we were running still</botton>
+<script>
+    var oBtn = document.getElementById('btn');
+    oBtn.onclick = function () {
+        alert('had the whole world at our feet')
+    };
+    var oMenu = document.getElementById('menu');
+    var aMainMenu = document.getElementsByTagName('li');
+    for (i = 0; i < aMainMenu.length; i++) {
+        if (aMainMenu[i] = 'main-menu') {
+            aMainMenu[i].onmouseover = function () {
+                var aSubmenu = this.getElementsByTagName('ul')[0];
+                aSubmenu.style.display = 'block'
+            };
+            aMainMenu[i].onmouseout = function () {
+                var aSubmenu = this.getElementsByTagName('ul')[0];
+                aSubmenu.style.display = 'none'
+            };
+        };
+    };
+</script>
+</body>
+</html>

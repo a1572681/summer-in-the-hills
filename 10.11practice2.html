@@ -5,8 +5,8 @@
     <title>practice2</title>
     <style>
         * {
-            margin: 0px;
-            padding: 0px;
+            margin: 0;
+            padding: 0;
         }
 
         ul, ol {
@@ -78,11 +78,20 @@
     </ul>
     <h1>hohohohoho</h1>
     <script>
-        var oMenu = document.getElementById('menu'){
-            var oMainmenu = oMenu.getElementsByClassName('main-menu'){
-
-            }
-        }
+        var oMenu = document.getElementById('menu');
+        var aMainmenu = oMenu.getElementsByTagName('li');
+        for (var i=0; i<aMainmenu.length; i++) {
+            if (aMainmenu[i].className == 'main-menu') {
+                aMainmenu[i].onmouseover = function () {
+                    var aSubmenu = this.getElementsByTagName('ul')[0];
+                    aSubmenu.style.display = 'block'
+                };
+                aMainmenu[i].onmouseout = function () {
+                    var aSubmenu = this.getElementsByTagName('ul')[0];
+                    aSubmenu.style.display = 'none'
+                };
+            };
+        };
     </script>
 </body>
 </html>
