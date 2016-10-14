@@ -16,12 +16,14 @@
         a {
             text-decoration: none;
         }
-        #menu{
+
+        #menu {
             background: powderblue;
             width: 120px;
             text-align: center;
         }
-        #menu h3{
+
+        #menu h3 {
             background: sandybrown;
             height: 30px;
             border: 1px solid black;
@@ -34,7 +36,7 @@
 </head>
 <body>
 <ul id="menu">
-    <li  class="main-menu">
+    <li class="main-menu">
         <h3>penny</h3>
         <ul class="sub-menu">
             <li><a href="?">link 1</a></li>
@@ -53,14 +55,14 @@
 </ul>
 <script>
     var oMenu = document.getElementById('menu');
-    var aLi = document.getElementsByTagName('li');
-    for(var i=0;i<aLi.length; i++){
-        if(aLi[i].className == 'main-menu'){
-            aLi[i].onclick = function(){
-                var aSubMenu = this.getElementsByTagName('ul')[0];
-                if(aSubMenu.style.display == 'block'){
+    var aLi = oMenu.getElementsByTagName('li');
+    for (var i = 0; i < aLi.length; i++) {
+        if (aLi[i].className == 'main-menu') {
+            aLi[i].onclick = function () {
+                var aSubMenu = this.getElementsByTagName('ul')[0];/*注意是this*/
+                if (aSubMenu.style.display == 'block') {
                     aSubMenu.style.display = 'none';
-                }else{
+                } else {
                     aSubMenu.style.display = 'block';
                 }
             };
