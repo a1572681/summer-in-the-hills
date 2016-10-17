@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Welcome to the world of RWBY</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        ul{
+            list-style: none;
+        }
+
+        #menu > li{
+            float: left;
+            background: indianred;
+            width: 120px;
+            height: 30px;
+            margin-right: 5px;
+            line-height: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        #menu > li ul{
+            text-align: left;
+            text-indent: 15px;
+            background: lavenderblush;
+            color: darkred;
+            border: 1px solid darkred;
+            display: none;
+        }
+
+        #menuBackground h1{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="menuBackground">
+        <h1>Welcome To the World of Rwby</h1>
+        <img src="" alt=""/>
+    </div>
+    <ul id="menu">
+        <li class="submenu">
+            待定1
+            <ul>
+                <li><a href="">link 1</a></li>
+                <li><a href="">link 2</a></li>
+                <li><a href="">link 3</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            Characters
+            <ul>
+                <li><a href="">Bacon</a></li>
+                <li><a href="">Shadows</a></li>
+                <li><a href="">Others</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            Pictures
+            <ul>
+                <li><a href="">link 1</a></li>
+                <li><a href="">link 2</a></li>
+                <li><a href="">link 3</a></li>
+            </ul>
+        </li>
+        <div>
+            <img src="" alt="" title="Ruby"/>
+            <img src="" alt="" title="Weiss"/>
+            <img src="" alt="" title="Blake"/>
+            <img src="" alt="" title="Yang"/>
+        </div>
+        <div>
+            <img src="" alt=""/>
+        </div>
+    </ul>
+    <script>
+        var oMenu = document.getElementById('menu');
+        var aMainmenu = oMenu.getElementsByTagName('li');
+
+        for(var i=0; i<aMainmenu.length; i++){
+            if(aMainmenu[i].className == 'submenu'){
+                aMainmenu[i].onmouseover = function(){
+                    var oSubmainmenu = this.getElementsByTagName('ul')[0];
+                    oSubmainmenu.style.display = 'block';
+                    this.style.color = 'black';
+                };
+                aMainmenu[i].onmouseout = function(){
+                    var oSubmainmenu = this.getElementsByTagName('ul')[0];
+                    oSubmainmenu.style.display = 'none';
+                    this.style.color = 'white';
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

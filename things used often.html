@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>能力验证函数</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    alert(getStyle(oDiv, 'width'));/*这里是在调用函数  这个函数意思是获得oDiv的“宽“这个属性*/
+    /*但是正常浏览器支持第一个方法  IE6支持第二个  为了兼容所有浏览器
+    就需要进行能力验证  用if验证浏览器能用哪个方法*/
+    function getStyle(elem, prop){/*这里是在声明函数  这个函数的意思是获得元素即elem 的属性即prop*/
+        if(window.getComputedStyle){/*如果这个方法能用*/
+            return window.getComputedStyle(elem, null)[prop];/*则返回使用这个方法*/
+        }else(elem.currentStyle){/*如果不能使用方法一 则使用这个方法*/
+            return elem.currentStyle[prop];/*则返回使用这个方法二*/
+        }
+    }
+
+</script>
+</html>
