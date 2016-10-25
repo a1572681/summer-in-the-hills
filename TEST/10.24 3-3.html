@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+        }
+        p{
+            width: 100px;
+            height: 30px;
+            border: 3px solid black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<select name="sel" id="selection">
+    <option value="1" >the first one</option>
+    <option value="2">the second one</option>
+    <option value="3">the third one</option>
+</select>
+<input type="text" name="content"/>
+<input type="text" name="value"/>
+<script>
+    var oSel = document.getElementsByName('sel')[0],
+            aOpt = oSel.getElementsByTagName('option'),
+            oValue = document.getElementsByName('value')[0],
+            oContent = document.getElementsByName('content')[0];
+
+
+    oSel.onchange = function(){
+        for(var i=0;i<aOpt.length;i++){
+            if(aOpt[i].selected == true){
+                oValue.value = aOpt[i].value;
+                oContent.value = aOpt[i].innerHTML;
+            }
+        }
+    };/*循环判断哪个属性是selected的  然后把这个的值拿出来放在input里*/
+
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var d,
+    y = d.getFullYear(),
+            m = d.getMonth() + 1,
+            n = d.getDate(),
+            a = d.getDay(),
+            h = d.getHours(),
+            min = d.getMinutes(),
+            s = d.getSeconds();
+    setInterval(function () {
+        d = new Date();
+
+
+        document.write('现在是' + y + '年' + m + '月' + n + '日' + h + '点' + min + '分' + s + '秒（星期' + a + ')，欢迎您的到访！');
+    })
+</script>
+</body>
+</html>

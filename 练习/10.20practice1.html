@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #container {
+            position: relative;
+            width: 1024px;
+            height: 1365px;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+
+        #list li {
+            float: left;
+            background: white;
+            color: darkslateblue;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+            border: 2px solid darkslateblue;
+            cursor: pointer;
+        }
+
+        #list .selected {
+            background: darkred;
+        }
+
+        #content img{
+            display: none;
+        }
+
+        #content .selected {
+            display: block;
+        }
+
+        #list {
+            position: absolute;
+            bottom: 30px;
+            left: 440px;
+        }
+
+        #arrow span {
+            width: 40px;
+            height: 30px;
+            background: white;
+            color: darkslateblue;
+            line-height: 30px;
+            text-align: center;
+            float: left;
+            font-size: 20px;
+            border: 2px solid darkslateblue;
+            cursor: pointer;
+        }
+
+        #arrow .selected {
+            background: darkred;
+        }
+
+        #arrow {
+            position: absolute;
+            left: 30px;
+            top: 667px;
+            width: 1024px;
+        }
+
+        #right {
+            position: absolute;
+            right: 60px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="list">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="content">
+        <img class="selected" src="image/Alice1.jpg" alt=""/>
+        <img src="image/Alice2.jpg" alt=""/>
+        <img src="image/Alice3.jpg" alt=""/>
+        <img src="image/Alice4.jpg" alt=""/>
+    </div>
+    <div id=arrow>
+        <span id="left">&lt;&lt;</span>
+        <span id="right">&gt;&gt;</span>
+    </div>
+</div>
+<script>
+    var oContainer = document.getElementById('container'),
+            aList = document.getElementById('list'),
+            aLi = document.getElementsByTagName('li'),
+            aContent = document.getElementById('content'),
+            aImg = document.getElementsByTagName('img'),
+            oLeft = document.getElementById('left'),
+            oRight = document.getElementById('right'),
+            iNow = 0;
+
+    function changeImg(idx) {
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].className = '';
+            aImg[i].className = '';
+        }
+        aLi[idx].className = 'selected';
+        aImg[idx].className = 'selected';
+    }
+
+    oLeft.onclick = function(){
+        iNow--;
+        if(iNow == -1){
+            iNow = 3
+        }
+        changeImg(iNow);
+    }
+
+    oRight.onclick = function(){
+        iNow++;
+        if(iNow == aLi.length){
+            iNow = 0;
+        }
+        changeImg(iNow);
+    }
+
+
+</script>
+</body>
+</html>

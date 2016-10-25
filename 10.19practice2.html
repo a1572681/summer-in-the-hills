@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Alice Madness Return</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #container {
+            width: 1024px;
+            height: 1365px;
+            position: relative;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        #content img {
+            /*必须要和下面selected的权重一样*/
+            display: none;
+        }
+
+        #content .selected {
+            display: block;
+        }
+
+        #tab li {
+            float: left;
+            background: white;
+            color: black;
+            height: 20px;
+            width: 20px;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 5px;
+            cursor: pointer; /*鼠标划过是手状*/
+        }
+
+        #tab .selected {
+            background: red;
+        }
+
+        #tab {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #arrow span {
+            /*要设置的是里面元素span的形状颜色  而不是整个div*/
+            float: left;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background: white;
+            color: black;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        #arrow {
+            /*定位的是整个arrow这个div  而不直接是里面的span*/
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+
+        #title{
+            position: absolute;
+            top: 30px;
+            left: 284px;
+        }
+
+        #title h1{
+            color: white;
+            text-align: center;
+            display: none;
+        }
+        #title .selected{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="tab">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="content">
+        <img class="selected" src="image/Alice1.jpg" alt=""/>
+        <img src="image/Alice2.jpg" alt=""/>
+        <img src="image/Alice3.jpg" alt=""/>
+        <img src="image/Alice4.jpg" alt=""/>
+    </div>
+    <div id="arrow">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+    <div id="title">
+        <h1>Alice Madness Return this time</h1>
+        <h1>Harmless girl in the reality</h1>
+        <h1>Nightmares all the time however</h1>
+        <h1>Be awake and choose a bloody way</h1>
+    </div>
+</div>
+<script>
+    var oTab = document.getElementById('tab');
+    var aLi = oTab.getElementsByTagName('li');
+    var oContent = document.getElementById('content');
+    var aImg = oContent.getElementsByTagName('img');
+    var oPrev = document.getElementById('prev');
+    var oNext = document.getElementById('next');
+    var iNow = 0;
+    var oTitle = document.getElementById('title');
+    var aH1 = oTitle.getElementsByTagName('h1');
+    var oContainer = document.getElementById('container');
+
+    for (var i = 0; i < aLi.length; i++) { /*意思等于“对于每个li执行以下”*/
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+
+            changeImg(this.index);
+            iNow = this.index;
+        };
+    }
+
+    function changeImg(idx){
+        for(var i = 0; i < aLi.length; i++){
+            aLi[i].className = '';
+            aImg[i].className = '';
+            aH1[i].className = '';
+        }
+
+        aLi[idx].className = 'selected';
+        aImg[idx].className = 'selected';
+        aH1[idx].className = 'selected';
+    }
+
+    oNext.onclick = function () {
+        iNow = iNow + 1;
+        if (iNow == aLi.length) {
+            iNow = 0;
+        }
+        changeImg(iNow);
+    };
+
+    oPrev.onclick = function () {
+        iNow = iNow - 1;
+        if (iNow == -1) {
+            iNow = 3
+        }
+        changeImg(iNow);
+    };
+
+    var timer = setInterval(function(){
+        oNext.onclick();
+    },1000);
+
+    oContainer.onmouseover = function(){
+        clearInterval(timer);
+    };
+
+    oContainer.onmouseout = function(){
+        timer = setInterval(function(){
+            oNext.onclick();
+        },1000)
+    };
+</script>
+</body>
+</html>

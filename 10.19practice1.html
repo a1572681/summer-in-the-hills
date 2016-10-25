@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #container {
+            width: 400px;
+            height: 300px;
+            border: 3px solid black;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #list {
+            position: absolute;
+            width: 1004px;
+        }
+
+        #list li {
+            float: left;
+            background: black;
+            color: white;
+            margin-right: 5px;
+            width: 120px;
+            height: 150px;
+            font-size: 40px;
+            text-align: center;
+            line-height: 150px;
+        }
+
+        #button {
+            position: absolute;
+            bottom: 10px;
+            left: 100px;
+        }
+
+        #button div {
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            float: left;
+            background: gainsboro;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="button">
+        <div id="left">向左</div>
+        <div id="right">向右</div>
+    </div>
+</div>
+<script>
+    var oList = document.getElementById('list');
+    var oLeft = document.getElementById('left');
+    var oRight = document.getElementById('right');
+    var speed = -2;
+    oList.innerHTML = oList.innerHTML + oList.innerHTML;
+    var aLi = oList.getElementsByTagName('li');
+    oList.style.width = aLi.length * (aLi[0].offsetWidth+5) + 'px';
+
+    setInterval(function () {
+        oList.style.left = oList.offsetLeft + speed + 'px';
+        if (oList.offsetLeft == -oList.offsetWidth / 2) {
+            oList.style.left = 0;
+        }
+        if (oList.offsetLeft > 0) {
+            oList.style.left = -oList.offsetWidth / 2 + 'px';
+            /*这里要加“px”*/
+        }
+    }, 50);
+
+    oRight.onmouseover = function () {
+        speed = 2;
+    };
+
+    oLeft.onmouseover = function () {
+        speed = -2;
+    };
+
+</script>
+</body>
+</html>

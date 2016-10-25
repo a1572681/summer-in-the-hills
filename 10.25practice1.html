@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Rwby rose</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #container{
+            margin: 50px auto;
+            width: 380px;
+        }
+        #nav li{
+            float: left;/*子元素浮动导致父元素没有高*/
+            width: 120px;
+            height: 30px;
+            background: orange;
+            margin-right: 5px;
+            line-height: 30px;
+            text-align: center;
+        }
+        #nav{
+            height: 30px;/*所以这里要加高*/
+        }
+        #content{
+            width: 370px;
+            height: 200px;
+            background: peachpuff;
+            border-top: 1px solid darkgoldenrod;
+        }
+        #nav .selected{
+            background: orangered;
+            color: cornsilk;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="nav">
+        <li>Ruby</li>
+        <li>White</li>
+        <li>Blake</li>
+    </ul>
+    <div id="content">
+        Welcome to the world of Rwby
+    </div>
+</div>
+<script></script>
+</body>
+</html>
